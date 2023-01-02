@@ -21,5 +21,5 @@ const addImageOne = function ({ url, alt }) {
 };
 
 const imagesList = images.map(addImageOne).join("");
-console.log(imagesList);
+// console.log(imagesList);
 list.insertAdjacentHTML("afterbegin", imagesList);
