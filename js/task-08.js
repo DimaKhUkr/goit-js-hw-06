@@ -3,9 +3,12 @@ form.addEventListener("submit", onSubmitFormSend);
 
 function onSubmitFormSend(event) {
   event.preventDefault();
+  //   const {
+  //     elements: { email, password },
+  //   } = event.currentTarget;
 
   const formEl = event.currentTarget.elements;
-  //   console.log(formEl);
+  //   //   console.log(formEl);
   const { email, password } = formEl;
   if (email.value.length < 1 || password.value < 1) {
     return alert("Please enter the correct data");
