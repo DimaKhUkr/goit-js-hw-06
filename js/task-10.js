@@ -5,7 +5,7 @@ function getRandomHexColor() {
 const btnCreateEl = document.querySelector("[data-create]");
 const btnDestroyEl = document.querySelector("[data-destroy]");
 const input = document.querySelector("[data-input]");
-const box = document.querySelector("#boxes");
+const boxEl = document.querySelector("#boxes");
 
 btnCreateEl.addEventListener("click", onInputCreateDir);
 btnDestroyEl.addEventListener("click", destroyBoxes);
@@ -18,9 +18,13 @@ btnDestroyEl.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
   const boxes = [];
+  let startArrayWidth = boxEl.childNodes.length * 10;
+  console.log(startArrayWidth);
   for (let i = 0; i <= amount - 1; i += 1) {
-    const box = `<div style="width: ${30 + i * 10}px; height: ${
-      30 + i * 10
+    const box = `<div style="width: ${
+      startArrayWidth + 30 + i * 10
+    }px; height: ${
+      startArrayWidth + 30 + i * 10
     }px; background-color:${getRandomHexColor()}"></div>`;
     boxes.push(box);
   }
@@ -34,10 +38,10 @@ function onInputCreateDir() {
   }
   const stringDirList = createBoxes(input.value).join("");
   // console.log(stringDirList);
-  box.innerHTML = stringDirList;
+  boxEl.insertAdjacentHTML("beforeend", stringDirList);
 }
 
 function destroyBoxes() {
   input.value = "";
-  box.innerHTML = "";
+  boxEl.innerHTML = "";
 }

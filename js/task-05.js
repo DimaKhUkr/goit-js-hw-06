@@ -18,3 +18,4 @@ function onInputEnterText(event) {
     output.textContent = "Anonymous";
   }
 }
+
